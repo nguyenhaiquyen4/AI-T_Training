@@ -1,0 +1,4 @@
+Scanner.nextInt is mutator.
+    after called, it point to next element.
+Random.nextInt is accessor.
+    after called, it's state is remain unchanged.

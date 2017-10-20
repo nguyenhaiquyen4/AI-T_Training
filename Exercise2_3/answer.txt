@@ -1,0 +1,2 @@
+mutator method can return not-void. Eg: return the state after update value
+accessor method can return void. Eg: output to medias

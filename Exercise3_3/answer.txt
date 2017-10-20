@@ -1,0 +1,10 @@
+String supertypes:
+    Object
+    Serializable, CharSequence, Comparable<String>
+    
+Scanner
+    Object
+    Closeable, AutoCloseable, Iterator<String>
+
+ImageOutputStream
+    AutoCloseable, Closeable, DataInput, DataOutput, ImageInputStream
