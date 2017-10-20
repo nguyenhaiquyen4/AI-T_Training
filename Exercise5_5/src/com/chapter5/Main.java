@@ -5,11 +5,11 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String... args) throws Exception {
+    public static void main(String... args) {
         method1();
     }
 
-    public static void method1() throws Exception{
+    public static void method1(){
         Scanner in = null;
         PrintWriter out = null;
         try {

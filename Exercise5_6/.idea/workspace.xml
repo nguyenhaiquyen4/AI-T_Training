@@ -15,11 +15,10 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/chapter5/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+            <state relative-caret-position="510">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#maina#0;class#Main#0" expanded="false" />
                 <element signature="method#mainc#0;class#Main#0" expanded="false" />
               </folding>
             </state>
@@ -246,12 +245,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1508471323101</updated>
-      <workItem from="1508471324464" duration="6016000" />
+      <workItem from="1508471324464" duration="6818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6016000" />
+    <option name="totallyTimeSpent" value="6818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1277" height="708" extended-state="0" />
@@ -315,11 +314,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/chapter5/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        <state relative-caret-position="510">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#maina#0;class#Main#0" expanded="false" />
             <element signature="method#mainc#0;class#Main#0" expanded="false" />
           </folding>
         </state>
