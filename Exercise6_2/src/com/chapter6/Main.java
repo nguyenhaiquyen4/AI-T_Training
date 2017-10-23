@@ -1,0 +1,19 @@
+package com.chapter6;
+
+public class Main {
+    public static void main(String...args) {
+        Stack<String> stack = new Stack<>();
+//        Stack2<String> stack = new Stack2<>(String[]::new);
+        System.out.println(stack.isEmpty());
+        stack.push("mot");
+        stack.push("hai");
+        System.out.println(stack.pop());
+        stack.push("ba");
+        System.out.println(stack.pop());
+        System.out.println(stack.isEmpty());
+        System.out.println(stack.pop());
+        System.out.println(stack.isEmpty());
+    }
+
+    // Prefer Object[], because Construction method luck more professional
+}
