@@ -1,0 +1,1 @@
+for each(var i in $ENV) print(i)

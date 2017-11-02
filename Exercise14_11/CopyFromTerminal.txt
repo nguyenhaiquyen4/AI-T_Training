@@ -1,0 +1,26 @@
+VN-LV00096-N:Exercise14_11 quyennh$ jjs -scripting list_values.js
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+x86_64
+/bin/bash
+Apple_Terminal
+/Users/quyennh/IdeaProjects
+xterm-256color
+quyennh
+en_US.UTF-8
+/var/folders/00/cv2r45z93f5d86j2w0r3fjbm0000gp/T/
+jdk.nashorn.tools.Shell
+/private/tmp/com.apple.launchd.ybiaCpQb9r/Listeners
+0x0
+672258AE-B193-4749-A9D8-49D8EC76307E
+0x1F6:0x0:0x0
+/private/tmp/com.apple.launchd.fUY4ur22Ir/Render
+CommandLine
+quyennh
+0
+/Users/quyennh/IdeaProjects/Exercise14_11
+388.1.1
+/Users/quyennh
+1
+/usr/bin/jjs
+39
+VN-LV00096-N:Exercise14_11 quyennh$
