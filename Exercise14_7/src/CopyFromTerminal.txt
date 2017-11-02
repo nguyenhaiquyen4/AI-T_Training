@@ -1,0 +1,8 @@
+jjs> var b = new java.math.BigInteger('1234567890987654321')
+jjs> b
+1234567890987654321
+jjs> b.mod(java.math.BigInteger.TEN)
+1
+jjs> 'What is strange ? All are correct !'
+What is strange ? All are correct !
+jjs>

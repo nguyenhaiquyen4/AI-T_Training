@@ -1,0 +1,5 @@
+VN-LV00096-N:Exercise14_10 quyennh$ export AGE=39
+VN-LV00096-N:Exercise14_10 quyennh$ jjs -scripting pipe.js
+Next year, you will be 40
+VN-LV00096-N:Exercise14_10 quyennh$ jjs -scripting pipe.js -- 23
+Next year, you will be 24

@@ -1,0 +1,7 @@
+jjs> today = java.time.ZonedDateTime.now()
+2017-11-02T16:01:44.681+07:00[Asia/Ho_Chi_Minh]
+jjs> tomorrow = today.plusDays(1)
+2017-11-03T16:01:44.681+07:00[Asia/Ho_Chi_Minh]
+jjs> 'Better than Notepad !!!'
+Better than Notepad !!!
+jjs>
