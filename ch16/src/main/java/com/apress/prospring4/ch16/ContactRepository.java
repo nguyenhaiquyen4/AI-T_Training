@@ -1,8 +1,6 @@
 package com.apress.prospring4.ch16;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-@Transactional
-public interface ContactRepository extends CrudRepository<Contact, Long> {
+public interface ContactRepository extends PagingAndSortingRepository<Contact, Long> {
 }

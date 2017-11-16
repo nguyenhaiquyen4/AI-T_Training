@@ -37,6 +37,10 @@
                 <td>${labelContactDescription}</td>
                 <td>${contact.description}</td>
             </tr>
+            <tr>
+                <td>${labelContactPhoto}</td>
+                <td><img src="${contactPhotoUrl}/${contact.id}"></img></td>
+            </tr>
         </table>
         <a href="${editContactUrl}/${contact.id}?form">${labelContactUpdate}</a>
     </div>

@@ -4,6 +4,20 @@
      xmlns:spring="http://www.springframework.org/tags"
      xmlns:form="http://www.springframework.org/tags/form"
      version="2.0">
+    <script type="text/javascript">
+        $(function () {
+            $('#birthDate').datepicker({
+                dateFormat: 'yy-mm-dd',
+                changeYear: true
+            });
+            $("#contactDescription").ckeditor(
+                {
+                    toolbar : 'Basic',
+                    uiColor : '#CCCCCC'
+                }
+            );
+        });
+    </script>
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <spring:message code="label_contact_new" var="labelContactNew"/>
@@ -53,9 +67,22 @@
                 <form:errors path="description" cssClass="error"/>
             </div>
             <p/>
+
+            <label for="file">
+                ${labelContactPhoto}
+            </label>
+            <input id="file" name="file" type="file"/>
+            <p/>
+
             <form:hidden path="version"/>
-            <button type="submit">Save</button>
-            <button type="reset">Reset</button>
+            <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all
+ui-button-text-only">
+                <span class="ui-button-text">Save</span>
+            </button>
+            <button type="reset" class="ui-button ui-widget ui-state-default ui-corner-all
+ui-button-text-only">
+                <span class="ui-button-text">Reset</span>
+            </button>
         </form:form>
     </div>
 </div>
