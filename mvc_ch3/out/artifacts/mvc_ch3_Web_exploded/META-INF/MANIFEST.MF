@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: demo
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: quyennh
+Implementation-Vendor-Id: com.example
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_144
+Main-Class: ${start-class}
+
