@@ -9,10 +9,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@Controller("/customers")
+@Controller
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
+
+    @RequestMapping("/customers")
+    public String list(Model model) {
+        model.addAttribute("customers", customerService.getAllCustomers());
+        return "customers";
+    }
 
     @RequestMapping(value = "/customers/add", method = RequestMethod.GET)
     public String getAddNewProductForm(Model model) {
@@ -25,18 +31,5 @@ public class CustomerController {
     public String processAddNewCustomerForm(@ModelAttribute("newCustomer") Customer newCustomer) {
         customerService.addCustomer(newCustomer);
         return "redirect:/customers";
-    }
-
-
-    @RequestMapping("/list")
-    public String list(Model model) {
-        model.addAttribute("customers", customerService.getAllCustomers());
-        return "customers";
-    }
-
-    @RequestMapping("/process")
-    public String process(Model model) {
-        return "redirect:/list";
-//        return "redirect:customers/list";
     }
 }

@@ -70,29 +70,29 @@ public class WebApplicationContextConfig extends
         return resolver;
     }
 
-//    @Bean
-//    public MappingJackson2JsonView jsonView() {
-//        MappingJackson2JsonView jsonView = new MappingJackson2JsonView();
-//        jsonView.setPrettyPrint(true);
-//        return jsonView;
-//    }
-//
-//    @Bean
-//    public MarshallingView xmlView() {
-//        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-//        marshaller.setClassesToBeBound(Product.class);
-//        MarshallingView xmlView = new MarshallingView(marshaller);
-//        return xmlView;
-//    }
-//
-//    @Bean
-//    public ViewResolver contentNegotiatingViewResolver(ContentNegotiationManager manager) {
-//        ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
-//        resolver.setContentNegotiationManager(manager);
-//        ArrayList<View> views = new ArrayList<>();
-//        views.add(jsonView());
-//        views.add(xmlView());
-//        resolver.setDefaultViews(views);
-//        return resolver;
-//    }
+    @Bean
+    public MappingJackson2JsonView jsonView() {
+        MappingJackson2JsonView jsonView = new MappingJackson2JsonView();
+        jsonView.setPrettyPrint(true);
+        return jsonView;
+    }
+
+    @Bean
+    public MarshallingView xmlView() {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setClassesToBeBound(Product.class);
+        MarshallingView xmlView = new MarshallingView(marshaller);
+        return xmlView;
+    }
+
+    @Bean
+    public ViewResolver contentNegotiatingViewResolver(ContentNegotiationManager manager) {
+        ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
+        resolver.setContentNegotiationManager(manager);
+        ArrayList<View> views = new ArrayList<>();
+        views.add(jsonView());
+        views.add(xmlView());
+        resolver.setDefaultViews(views);
+        return resolver;
+    }
 }
