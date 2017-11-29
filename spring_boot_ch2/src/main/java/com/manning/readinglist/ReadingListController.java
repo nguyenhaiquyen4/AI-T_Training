@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/")
@@ -19,14 +20,15 @@ public class ReadingListController {
             ReadingListRepository readingListRepository) {
         this.readingListRepository = readingListRepository;
     }
-//
-//    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-//    public String hello(Model model){
-//        return "hello";
-//    }
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String hello(Model model){
+        return "hello";
+    }
 
     @RequestMapping(value = "/{reader}", method = RequestMethod.GET)
     public String readersBooks(@PathVariable("reader") String reader, Model model) {
+        Logger.getLogger("AAA"+reader);
         List<Book> readingList = readingListRepository.findByReader(reader);
         if (readingList != null) {
             model.addAttribute("books", readingList);
