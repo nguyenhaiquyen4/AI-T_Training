@@ -127,7 +127,7 @@ public class WebApplicationContextConfig extends
         Set<Validator> springValidators = new HashSet<>();
         springValidators.add(new UnitsInStockValidator());
         ProductImageValidator productImageValidator = new ProductImageValidator();
-        productImageValidator.setAllowedSize(1000);
+        productImageValidator.setAllowedSize(100000000);
         springValidators.add(productImageValidator);
         ProductValidator productValidator = new ProductValidator();
         productValidator.setSpringValidators(springValidators);

@@ -77,7 +77,7 @@ public class ProductRepositoryImpl implements ProductRepository {
                 + "UNIT_PRICE,"
                 + "MANUFACTURER,"
                 + "CATEGORY,"
-                + "CONDITION,"
+                + "`CONDITION`,"
                 + "UNITS_IN_STOCK,"
                 + "UNITS_IN_ORDER,"
                 + "DISCONTINUED) "

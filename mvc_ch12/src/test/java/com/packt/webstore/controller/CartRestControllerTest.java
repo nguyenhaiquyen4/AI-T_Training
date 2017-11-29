@@ -1,10 +1,12 @@
 package com.packt.webstore.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +19,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import com.packt.webstore.config.WebApplicationContextConfig;
-
-import java.util.logging.Logger;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = WebApplicationContextConfig.class)
@@ -37,10 +37,17 @@ public class CartRestControllerTest {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
     }
 
+    @After
+    public void cleanUp() {
+        try {
+            this.mockMvc.perform(delete("/rest/cart/" + session.getId()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Test
-    public void
-    read_method_should_return_correct_cart_Json_object()
-            throws Exception {
+    public void read_method_should_return_correct_cart_Json_object() throws Exception {
 //Arrange
         this.mockMvc.perform(put("/rest/cart/add/P1234").session(session))
                 .andExpect(status().is(200));
@@ -48,12 +55,19 @@ public class CartRestControllerTest {
         this.mockMvc.perform(get("/rest/cart/" + session.getId()).session(session))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.cartItems[0].product.productId").value("P1234"));
+    }
 
-
-
-        //        this.mockMvc.perform(put("/product.json?id=P1234").session(session))
-
-        //        this.mockMvc.perform(get("/product.json?id=P1234").session(session))
-
+    @Test
+    public void remove_method_should_remove_the_correct_card_Json_object() throws Exception {
+//Arrange
+        this.mockMvc.perform(put("/rest/cart/add/P1234").session(session))
+                .andExpect(status().is(200));
+//Act
+        this.mockMvc.perform(put("/rest/cart/remove/P1234").session(session))
+                .andExpect(status().is(200));
+//Assert
+        this.mockMvc.perform(get("/rest/cart/" + session.getId()).session(session))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.cartItems").isEmpty());
     }
 }
