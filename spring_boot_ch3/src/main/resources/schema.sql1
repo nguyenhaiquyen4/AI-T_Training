@@ -1,0 +1,20 @@
+CREATE TABLE BOOK (
+ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+READER VARCHAR(50),
+ISBN VARCHAR(25),
+TITLE VARCHAR(50),
+AUTHOR VARCHAR(50),
+CATEGORY VARCHAR(50),
+DESCRIPTION VARCHAR(50)
+);
+
+INSERT INTO BOOK VALUES ('1235', 'Nexus', 'Google Nexus 7 is th','','','','');
+INSERT INTO BOOK VALUES ('1234', 'Google', 'Google Nexus 7 is th','','','','');
+
+CREATE TABLE READER (
+USERNAME VARCHAR(25) PRIMARY KEY,
+FULLNAME VARCHAR(25),
+PASSWORD VARCHAR(25));
+
+insert into Reader (username, password, fullname) values ('craig', 'password', 'Craig Walls');
+insert into Reader (username, password, fullname) values ('walt', 'marceline', 'Walt Disney');
