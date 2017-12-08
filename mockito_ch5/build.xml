@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="cobertura.examples.basic" default="coverage" basedir=".">
+    <property file="build.properties" />
+    <path id="cobertura.classpath">
+        <fileset dir="${cobertura.dir}">
+            <include name="cobertura.jar" />
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
+    <target name="init">
+        <mkdir dir="${classes.dir}" />
+        <mkdir dir="${instrumented.dir}" />
+        <mkdir dir="${reports.xml.dir}" />
+        <mkdir dir="${reports.html.dir}" />
+        <mkdir dir="${coverage.xml.dir}" />
+        <mkdir dir="${coverage.summaryxml.dir}" />
+        <mkdir dir="${coverage.html.dir}" />
+    </target>
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="yes">
+            <classpath refid="cobertura.classpath" />
+        </javac>
+    </target>
+
+    <target name="testcompile" depends="compile">
+        <javac srcdir="${test.dir}" destdir="${classes.dir}">
+            <classpath refid="cobertura.classpath" />
+        </javac>
+    </target>
+    <target name="instrument" depends="init,compile,testcompile">
+        <delete file="cobertura.ser"/>
+        <delete dir="${instrumented.dir}" />
+        <cobertura-instrument todir="${instrumented.dir}">
+            <fileset dir="${classes.dir}">
+                <include name="**/*.class" />
+                <exclude name="**/*Test.class" />
+            </fileset>
+        </cobertura-instrument>
+    </target>
+
+    <target name="test" depends="init,compile,testcompile">
+        <junit fork="yes" dir="${basedir}" failureProperty="test.failed">
+            <classpath location="${instrumented.dir}" />
+            <classpath location="${classes.dir}" />
+            <classpath refid="cobertura.classpath" />
+            <formatter type="xml" />
+            <test name="${testcase}" todir="${reports.xml.dir}" if="testcase" />
+            <batchtest todir="${reports.xml.dir}" unless="testcase">
+                <fileset dir="${test.dir}">
+                    <include name="**/*Test.java" />
+                </fileset>
+            </batchtest>
+        </junit>
+        <junitreport todir="${reports.xml.dir}">
+            <fileset dir="${reports.xml.dir}"><include name="TEST-*.xml" /></fileset>
+            <report format="frames" todir="${reports.html.dir}" />
+        </junitreport>
+    </target>
+    <target name="coverage-check">
+        <cobertura-check branchrate="34" totallinerate="100" />
+    </target>
+    <target name="coverage-report">
+        <cobertura-report srcdir="${src.dir}" destdir="${coverage.xml.dir}" format="xml" />
+    </target>
+    <target name="summary-coverage-report">
+        <cobertura-report srcdir="${src.dir}" destdir="${coverage.summaryxml.dir}" format="summaryXml" />
+    </target>
+    <target name="alternate-coverage-report">
+        <cobertura-report destdir="${coverage.html.dir}">
+            <fileset dir="${src.dir}"><include name="**/*.java"/></fileset>
+        </cobertura-report>
+    </target>
+
+    <target name="clean" description="Remove all files created by the build/test process.">
+        <delete dir="${classes.dir}" />
+        <delete dir="${instrumented.dir}" />
+        <delete dir="${reports.dir}" />
+        <delete file="cobertura.log" />
+        <delete file="cobertura.ser" />
+    </target>
+    <target name="coverage" depends="compile,instrument,test,coverage-report,summary-coverage-report,alternate-coverage-report" />
+</project>

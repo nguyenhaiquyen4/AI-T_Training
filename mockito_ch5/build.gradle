@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: "jacoco"
+repositories {
+    flatDir(dir: '../lib', name: 'JUnit Library')
+    mavenCentral()
+}
+dependencies {
+    testCompile'junit:junit', ':hamcrest-core'}
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
