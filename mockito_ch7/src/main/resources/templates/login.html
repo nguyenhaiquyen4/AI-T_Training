@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Login</title>
+</head>
+<body>
+<div id="loginForm">
+  <h3>Login With Username and Password</h3>
+  <h4><span th:text="${error}">Name</span></h4>
+  <form modelAttribute="loginInfo" name='f' th:action="@{/onLogin}" method='POST' th:object="${loginInfo}" >
+    <table>
+      <tr>
+        <td>User:</td>
+        <td><input type='text' name='userId' value='' /></td>
+        <td><span th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">Name Error</span></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type='password' name='password' /></td>
+        <td><span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</span></td>
+      </tr>
+      <tr>
+        <td colspan='2'><input name="submit" type="submit"
+                               value="Login" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>
